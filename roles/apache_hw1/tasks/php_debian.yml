@@ -1,0 +1,7 @@
+---
+- name: install php for Debian
+  apt:
+    name:
+      - php
+      - libapache2-mod-php
+    state: latest

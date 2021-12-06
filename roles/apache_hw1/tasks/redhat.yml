@@ -1,0 +1,10 @@
+---
+- name: Install web server for RedHat
+  ansible.builtin.yum:
+    name: httpd
+    state: present
+- name: Start web server for RedHat
+  service:
+    name: httpd
+    state: started
+    enabled: yes

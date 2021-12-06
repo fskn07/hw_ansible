@@ -1,0 +1,23 @@
+---
+# tasks file for apache_hw1
+- block: #RedHat
+   - name: Install web server for RedHat
+     import_tasks: redhat.yml
+   - name: Install php  for RedHat
+     import_tasks: php_redhat.yml
+  when: ansible_facts['os_family']|lower == 'redhat'
+
+- block: #Debian
+   - name: Install web server for Debian
+     import_tasks: debian.yml
+   - name: Install php  for Debian
+     import_tasks: php_debian.yml
+  when: ansible_facts['os_family']|lower == 'debian'
+
+- name: Generate phpinfo
+  template:
+     src: phpinfo.j2
+     dest: "{{ destin_folder }}/phpinfo.php"
+  notify:
+     - Restart Apache
+     - Restart httpd

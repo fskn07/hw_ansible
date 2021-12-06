@@ -1,0 +1,13 @@
+---
+- name: Installing Remi Repository for RedHat
+  yum:
+    name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    state: present
+- name: install php for RedHat
+  yum:
+    enablerepo: "remi,remi-php74"
+    name:
+      - php
+      - php-common
+      - php-cli
+    state: latest

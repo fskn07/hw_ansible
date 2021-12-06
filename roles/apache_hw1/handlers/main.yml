@@ -1,0 +1,12 @@
+---
+- name: Restart httpd
+  service:
+     name: httpd
+     state: restarted
+  when: ansible_facts['os_family']|lower == 'redhat'
+  
+- name: Restart Apache
+  service:
+    name: apache2
+    state: restarted
+  when: ansible_facts['os_family']|lower == 'debian'

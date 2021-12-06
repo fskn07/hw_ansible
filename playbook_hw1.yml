@@ -1,0 +1,8 @@
+---
+ - hosts:
+      server1
+      server2
+   become: true
+   roles:
+     - role: apache_hw1
+       when: ansible_system == 'Linux'

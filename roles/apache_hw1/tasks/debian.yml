@@ -1,0 +1,10 @@
+---
+- name: Install web server for Debian
+  ansible.builtin.apt:
+    name: apache2
+    state: present
+- name: Start web server for debian
+  service:
+    name: apache2
+    state: started
+    enabled: yes
