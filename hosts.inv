@@ -1,2 +1,5 @@
+[server2:vars]
+ansible_sudo_pass=3333
+
 [server2]
 alexus@192.168.247.130
